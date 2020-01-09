@@ -1,0 +1,203 @@
+@import '~@angular/material/theming';
+@import './styleguide.scss';
+
+$Black-900: 		#121212;
+$Black-800: 		#191919;
+$Black-700: 		#252525;
+$Black-600: 		#393939;
+$Black-500: 		#636363;
+$Black-400: 		#aeaeae;
+$Black-300: 		#dedede;
+$Black-200: 		#e9e9e9;
+$Black-100: 		#f3f3f3;
+$Blue-700-Opacity: 	rgba(0, 34, 85, 0.5);
+$Blue-700: 			#002255;
+$Blue-600: 			#012c6c;
+$Blue-500: 			#024ec0;
+$Blue-400: 			#5588d4;
+$Blue-300: 			#cbdaf2;
+$Blue-200: 			#f1f6fd;
+$invalid-name: 		#e6edf8;
+$black-700-Opacity: rgba(57, 63, 73, 0.6);
+$Red: 				#d70000;
+$Yellow:  			#FFCC00;
+$Teal: 				#00c686;
+
+
+$primary: #00e5ff;
+$primary-light: #6effff;
+$primary-dark: #00b2cc;
+
+$secondary: #ff9100;
+$secondary-light: #ffc246;
+$secondary-dark: #c56200;
+
+$accent: #c28fff;
+
+$sidenav-background: $Black-900;
+$main-text: rgba(255, 255, 255, 0.94);
+$main-background: linear-gradient(0deg, $Black-800 0%, $Black-700 100%);
+$secondary-background: $Black-500;
+$block-background: $Black-600;
+$accent_blue: #0096ca;
+
+@mixin desktop {
+    @media all and (min-width:480px){
+        @content;
+    }
+}
+
+@mixin phone {
+    @media not all and (min-width:480px) {
+        @content;
+    }
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: 	url("/assets/fonts/bebasneue_regular.ttf") format("truetype"), /* Safari, Android, iOS */
+			url('/assets/fonts/bebasneue_regular.woff2') format('woff2'), /* Super Modern Browsers */
+			url('/assets/fonts/bebasneue_regular.woff') format('woff'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+    font-family: "BebasNeueBold";
+    src: 	url("/assets/fonts/bebasneue_bold-webfont.ttf") format("truetype"), /* Safari, Android, iOS */
+			url('/assets/fonts/bebasneue_bold-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+			url('/assets/fonts/bebasneue_bold-webfont.woff') format('woff'); /* Pretty Modern Browsers */
+}
+
+span:focus {
+    outline: none;
+}
+
+body{
+	margin: 0;
+}
+
+h1 {
+	font: 500 32px "Lato", sans-serif;
+}
+
+div {
+	font: 400 14px "Lato", sans-serif;
+}
+
+.mat-dialog-header {
+	display: flex;
+	justify-content: space-between;
+
+	font-family: "Poppins", sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #252525;
+
+	button {
+		color: black;
+	    height: 40px;
+    	width: 40px;
+        padding: 0;
+        margin: auto 24px;
+
+        .mat-icon {
+
+            position: relative;
+            top: 0px;
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+	}
+}
+
+.mat-dialog-content {
+	font-family: "OpenSans", sans-serif;
+	max-height: 75vh;
+	form {
+		display: flex;
+		flex-flow: wrap;
+
+		.mat-form-field {
+			width: 100%;
+		}
+	}
+}
+
+.mat-dialog-actions {
+    overflow: auto;
+	width: auto;
+	position: relative;
+	bottom: 0;
+	margin: 0;
+	padding: 24px;
+}
+
+.mat-h1, .mat-headline, .mat-typography h1 {
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    @include desktop {
+        font: 500 64px "BebasNeue", sans-serif;
+    }
+    @include phone {
+        font: 500 56px "BebasNeue", sans-serif;
+    }
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+    margin: auto;
+    color: white; 
+    font-weight: bold;
+    @include desktop {
+        font: 500 40px "BebasNeue", sans-serif;
+    }
+    @include phone {
+        font: 500 32px "BebasNeue", sans-serif;
+    }
+}
+
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+    margin: auto;
+    color: white; 
+    font-weight: bold;
+    @include desktop {
+        margin-left: 48px;
+        font: 500 32px "BebasNeue", sans-serif;
+    }
+    @include phone {
+        margin-left: 8px;
+        font: 500 24px "BebasNeue", sans-serif;
+    }
+	@include phone {
+		font-size: 21px;
+	}
+}
+
+.mat-h4, .mat-subheading-1, .mat-typography h4 {
+	@extend .H4Black700;
+	@include phone {
+		font-size: 20px;
+	}
+    color: white;
+	margin: 24px 16px;
+}
+
+.mat-h5, .mat-typography h5 {
+	@extend .H5Black700;
+	@include phone {
+		font-size: 18px;
+	}
+    color: white;
+	margin: 24px 16px;
+}
+
+.mat-h6, .mat-typography h6 {
+	@extend .H6Black700Medium;
+    color: white;
+	margin: 24px 16px;
+}
