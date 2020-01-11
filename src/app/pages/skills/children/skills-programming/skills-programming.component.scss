@@ -13,7 +13,7 @@ table { table-layout: fixed; }
 td { width: auto; }
 
 .logo-container {
-    background: #0000009e;
+    background: transparent;
     padding: 16px;
     margin: 16px;
     margin-left: 0;
@@ -137,13 +137,10 @@ li {
     position: relative;
     z-index: 101;
     color: white;
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
     @include phone {
-        font-size: 0.9em;
         padding-bottom: 4vh;
     }
     @include desktop {
-        font-size: 0.9em;
         padding-bottom: 5vh;
     }
 }

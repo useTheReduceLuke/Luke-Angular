@@ -1,15 +1,16 @@
 
-<div class="background-container">
-	<img src="../assets/images/Tacoma_small.jpg" class="background-image">
-</div>
 
-<div class="top-bar" id="toolbar">
-	<span id="lukejungmann" routerLink="/home" class="title-font mat-h2" style="display: flex;">
-		<span class="home-text" [ngClass]="(currentPage && currentPage != 'home') ? 'visible' : 'hidden'">Home</span>
-		<span style="margin: auto;">LukeJungmann.me</span>
+<div class="top-bar title-font" id="toolbar" routerLink="/home">
+	<span style="margin: auto auto auto 12px;" class="visible" [ngClass]="{'hidden' : (currentPage && currentPage == 'home')}">
+		<div class="wipe wipe-down"></div>
+		<span class="mat-h1" style="cursor: pointer;">Home</span>
 	</span>
 </div>
 
-<div class="router">
+<!-- <div class="router">
+	<router-outlet #o="outlet"></router-outlet>
+</div> -->
+
+<div class="router" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
 	<router-outlet #o="outlet"></router-outlet>
 </div>

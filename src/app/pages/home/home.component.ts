@@ -15,33 +15,6 @@ import * as $ from "jquery";
 	selector: 'app-home-component',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
-	animations: [
-	trigger('scrollAnimation', [
-		transition(':enter',  group([
-			style({ opacity: 0, transform: 'translateX(-60px)' }),
-			animate('1s ease-in-out', keyframes([
-				style({opacity: 0, transform: 'translateX(-60px)', offset: 0}),
-				style({opacity: 1, transform: 'translateX(0px)', offset: 1.0})
-			]))
-		]))
-	]), 
-	trigger('fadeAnimation', [
-		transition('out => in',  group([
-			style({ opacity: 0, }),
-			animate('4s ease-in-out', keyframes([
-				style({opacity: 0, offset: 0.8}),
-				style({opacity: 1, offset: 1.0})
-			]))
-		])),
-		transition('in => out',  group([
-			style({ opacity: 1, }),
-			animate('1s ease-in-out', keyframes([
-				style({opacity: 1, offset: 0}),
-				style({opacity: 0, offset: 1.0})
-			]))
-		])),
-	])
-	]
 })
 
 
@@ -52,6 +25,13 @@ export class HomeComponent implements OnInit {
 	public state = 'hide';
 	public fade = 'out';
 	public selected: number = 0;
+
+	public menuItems: Array<any> = [
+		{text: 'Skills', routerLink: '/portfolio'},
+		{text: 'Resume', routerLink: '/resume'},
+		{text: 'Contact', routerLink: '/contact'},
+		{text: 'About Me', routerLink: '/about'},
+	]
 
 	constructor(public el: ElementRef){
 

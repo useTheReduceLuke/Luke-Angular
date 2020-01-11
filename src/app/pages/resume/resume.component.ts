@@ -2,10 +2,7 @@ import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angu
 import { ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
-
 import { MediaMatcher } from '@angular/cdk/layout';
-
-
 import {trigger, animate, style, group, query, transition, keyframes, state} from '@angular/animations';
 
 

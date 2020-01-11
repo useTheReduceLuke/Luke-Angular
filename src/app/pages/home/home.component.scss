@@ -1,5 +1,56 @@
 @import "../../app.component.scss";
 
 @mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
-    text-shadow: $x $y $blur $color;
+		text-shadow: $x $y $blur $color;
 }
+
+.component {
+	display: grid;
+}
+
+.menu-items {
+	cursor: pointer;
+	width: 100%;
+	@include phone {
+		margin: auto 20px 0 20px;
+	}
+	@include desktop {
+		margin: auto auto 100px 80px;
+	}
+
+	.title-font {
+		@include phone {
+			margin: 20px auto; 
+		}
+		@include desktop {
+			margin: 40px auto; 
+		}
+		display: flex;
+		@extend .mat-h1;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:hover {
+			.wipe:after {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.mat-h1 {
+			margin: 0;
+		}
+
+		.wipe {
+			transform: skew(15deg);
+			margin: 0 32px
+		}
+	}
+}
+
+.block:active {
+		outline: none;
+}
+

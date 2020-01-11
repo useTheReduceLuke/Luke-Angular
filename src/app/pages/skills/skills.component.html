@@ -1,34 +1,35 @@
 <!-- <app-skills-programming></app-skills-programming> -->
 <!-- <app-skills-design></app-skills-design> -->
 
+<div class="component">
+    
+    <div>
+        <div *ngIf="page == 'main'; then p_main; else ''"></div>
+        <div *ngIf="page == 'programming'; then p_programming; else ''"></div>
+        <div *ngIf="page == 'design'; then p_design; else ''"></div>
+    </div>
 
-<div>
-    <div *ngIf="page == 'main'; then p_main; else ''"></div>
-    <div *ngIf="page == 'programming'; then p_programming; else ''"></div>
-    <div *ngIf="page == 'design'; then p_design; else ''"></div>
+    <ng-template #p_main>
+        <div class="split" style="background: #000;" (click)="openPage('design')">
+            <div class="split-options">Design <br> Experience</div>
+            <div class="split-images">
+                <img class="split-image" src='./../../../assets/images/Portfolio/Draft.jpg'>
+            </div>
+        </div>
+        <div class="split" style="background: #000;" (click)="openPage('programming')">
+            <div class="split-options">Software <br> Experience</div>
+            <div class="split-images">
+                <img class="split-image" src='./../../../assets/images/Portfolio/AI.jpg'>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #p_programming>
+        <app-skills-programming></app-skills-programming>
+    </ng-template>
+
+    <ng-template #p_design>
+        <app-skills-design></app-skills-design>
+    </ng-template>
+
 </div>
-
-<ng-template #p_main>
-    <div class="split" style="background: #000;" (click)="openPage('design')">
-        <div class="split-options">Design <br> Experience</div>
-        <div class="split-images">
-            <img class="split-image" src='./../../../assets/images/Portfolio/Draft.jpg'>
-        </div>
-    </div>
-    <div class="split" style="background: #000;" (click)="openPage('programming')">
-        <div class="split-options">Software <br> Experience</div>
-        <div class="split-images">
-            <img class="split-image" src='./../../../assets/images/Portfolio/AI.jpg'>
-        </div>
-    </div>
-</ng-template>
-
-<ng-template #p_programming>
-    <app-skills-programming></app-skills-programming>
-</ng-template>
-
-<ng-template #p_design>
-    <app-skills-design></app-skills-design>
-</ng-template>
-
-

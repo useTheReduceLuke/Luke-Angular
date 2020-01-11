@@ -41,6 +41,15 @@ $secondary-background: $Black-500;
 $block-background: $Black-600;
 $accent_blue: #0096ca;
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently */
+}
+
 @mixin desktop {
     @media all and (min-width:480px){
         @content;
@@ -81,6 +90,7 @@ h1 {
 
 div {
 	font: 400 14px "Lato", sans-serif;
+    color: white;
 }
 
 .mat-dialog-header {
@@ -141,6 +151,7 @@ div {
     margin: auto;
     color: white;
     font-weight: bold;
+    @extend .noselect;
     @include desktop {
         font: 500 64px "BebasNeue", sans-serif;
     }
@@ -153,8 +164,9 @@ div {
     margin: auto;
     color: white; 
     font-weight: bold;
+    @extend .noselect;
     @include desktop {
-        font: 500 40px "BebasNeue", sans-serif;
+        font: 500 48px "BebasNeue", sans-serif;
     }
     @include phone {
         font: 500 32px "BebasNeue", sans-serif;

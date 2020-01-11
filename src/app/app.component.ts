@@ -29,10 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	public isMobile: boolean = false;
 	public state = 'hide';
-	public toolbar = document.getElementById("toolbar");
-	public toolbarbar = document.getElementById("toolbarbar");
-	public w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-	public h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 	start: boolean = false;
 
 	private scrollingDown: boolean = true;
@@ -66,14 +62,12 @@ export class AppComponent implements OnInit, OnDestroy {
 	    		this.url = event["url"];
 	    		let short = this.url.replace(/\\|\//g,'');
 	    		this.currentPage = short;
-	    		console.log(short)
 	    		let others = this.pageList.filter(e => e !== short);
 	    });
 	}
 
 	ngOnInit(): void {
 		setTimeout(() => this.start = true, 1000)
-		this.toolbar = document.getElementById("toolbar");
 	}
 
 	ngOnDestroy(): void {
