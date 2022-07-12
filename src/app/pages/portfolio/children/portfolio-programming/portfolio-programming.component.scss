@@ -1,0 +1,121 @@
+@import "../../portfolio.component.scss";
+
+:host {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+table { table-layout: fixed; }
+td { width: auto; }
+
+	
+.section {
+	text-align:center;
+	font-size: 3em;
+}
+
+.complete-page {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.page-container {
+	@extend .complete-page;
+	z-index: 2;
+}
+
+.title-container {
+	background: transparent;
+	padding: 16px;
+	padding-right: 48px;
+	border-radius: 4px;
+	
+	@include desktop {
+		width: 1000px;
+		padding: 64px;
+		margin: auto;
+	}
+
+	.title {
+		display: flex;
+
+		.title-text {
+			@extend .mat-h1;
+			margin: auto 0;
+		}
+	}
+
+	.description {
+		text-align: left;
+		display: block;
+		position: relative;
+		color: white;
+		@include desktop {
+			font-size: 24px;
+		}
+		@include phone {
+			font-size: 16px;
+		}
+	}
+
+	.sub-item {
+		margin-top: 24px;
+		@include desktop {
+			margin-left: 40px;
+			font-size: 20px;
+		}
+		@include phone {
+			margin-left: 32px;
+			font-size: 16px;
+		}
+	}
+}
+
+.page-backdrop {
+	@extend .complete-page;
+	z-index: 1;
+	opacity: 0.10;
+	filter: blur(5px);
+
+	img {
+		background-size: cover;
+		padding: 0 24px;
+		position: absolute;
+		border-radius: 64px 64px 0 0;
+		bottom: 0;
+		overflow: hidden;
+		display: flex;
+		z-index: 1;
+		object-fit: contain;
+		
+		-webkit-transition: opacity 0.3s ease-in-out;
+		-moz-transition: opacity 0.3s ease-in-out;
+		-o-transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.3s ease-in-out;
+
+		opacity:0;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		filter: alpha(opacity=0);
+
+		@include desktop {
+			height: 80vh;
+			width: auto;
+		}
+		@include phone {
+			height: 60vh;
+			width: auto;
+		}
+
+		&.opaque {
+			opacity:1;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+			filter: alpha(opacity=1);
+		}
+	}
+}

@@ -1,15 +1,18 @@
 <div class="component">
-
-	<span class="mat-h2" style="margin: auto; z-index: 1;" [ngStyle]="isMobile ? {'display': 'grid'} : {'display': 'block'}">
-		<span class="neon">Luke</span>
-		<span class="flux">Jungmann</span>
-		<span class="neon-pink">.me</span>
-	</span>
+	<div style="width: 100%; display: flex; position: absolute; margin: 0;">
+		<span class="mat-h2" style="margin: 20px auto; z-index: 1;" [ngStyle]="isMobile ? {'display': 'grid'} : {'display': 'block'}">
+			<span class="neon">Luke</span>
+			<span class="flux">Jungmann</span>
+			<span class="neon-pink">.me</span>
+		</span>
+	</div>
 	<div class="menu-items">
-		<div class="title-font" [ngStyle]="!isMobile ? {'margin-left': i*32+'px'} : {'margin-right' : i*16+'px'}" *ngFor="let item of menuItems; let i = index;" [routerLink]="item.routerLink">
+		<div class="title-font" [ngStyle]="!isMobile ? {'margin-left': i*32+'px'} : {'margin-right' : i*24+'px'}" *ngFor="let item of menuItems; let i = index;" [routerLink]="item.routerLink">
 			<div *ngIf="!isMobile" class="wipe wipe-down"></div>
-			<span class="mat-h1" [ngStyle]="isMobile && {'margin-left': 'auto'}">{{item.text}}</span>
-			<div *ngIf="isMobile" class="wipe wipe-down"></div>
+			<span class="mat-h1" [ngStyle]="isMobile && {'margin-left': 'auto'}" *ngIf="!item.children">{{item.text}}</span>
+			<mat-icon>{{item.icon}}</mat-icon>
 		</div>
 	</div>
 </div>
+
+<div class="image-container"><img [src]="isMobile ? 'assets/images/Fuji.jpg' : 'assets/images/Fuji_wide.jpg'"></div>

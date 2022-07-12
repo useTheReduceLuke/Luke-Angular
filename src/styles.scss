@@ -43,45 +43,53 @@ $accent_blue: #0096ca;
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently */
+	-webkit-user-select: none; /* Safari */
+	 -khtml-user-select: none; /* Konqueror HTML */
+	   -moz-user-select: none; /* Old versions of Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+			user-select: none; /* Non-prefixed version, currently */
 }
 
 @mixin desktop {
-    @media all and (min-width:480px){
-        @content;
-    }
+	@media all and (min-width:480px){
+		@content;
+	}
 }
 
 @mixin phone {
-    @media not all and (min-width:480px) {
-        @content;
-    }
+	@media not all and (min-width:480px) {
+		@content;
+	}
 }
 
 @font-face {
-    font-family: "BebasNeue";
-    src: 	url("/assets/fonts/bebasneue_regular.ttf") format("truetype"), /* Safari, Android, iOS */
+	font-family: "BebasNeue";
+	src: 	url("/assets/fonts/bebasneue_regular.ttf") format("truetype"), /* Safari, Android, iOS */
 			url('/assets/fonts/bebasneue_regular.woff2') format('woff2'), /* Super Modern Browsers */
 			url('/assets/fonts/bebasneue_regular.woff') format('woff'); /* Pretty Modern Browsers */
 }
 
 @font-face {
-    font-family: "BebasNeueBold";
-    src: 	url("/assets/fonts/bebasneue_bold-webfont.ttf") format("truetype"), /* Safari, Android, iOS */
+	font-family: "BebasNeueBold";
+	src: 	url("/assets/fonts/bebasneue_bold-webfont.ttf") format("truetype"), /* Safari, Android, iOS */
 			url('/assets/fonts/bebasneue_bold-webfont.woff2') format('woff2'), /* Super Modern Browsers */
 			url('/assets/fonts/bebasneue_bold-webfont.woff') format('woff'); /* Pretty Modern Browsers */
 }
 
 span:focus {
-    outline: none;
+	outline: none;
 }
 
 body{
 	margin: 0;
+	height: 100%; 
+	width: 100%; 
+	overflow: hidden; 
+	background-color: #0e0e0e; 
+	overflow: hidden; 
+	justify-content: center; 
+	position: relative; 
+	top: 0;
 }
 
 h1 {
@@ -90,7 +98,7 @@ h1 {
 
 div {
 	font: 400 14px "Lato", sans-serif;
-    color: white;
+	color: white;
 }
 
 .mat-dialog-header {
@@ -98,30 +106,30 @@ div {
 	justify-content: space-between;
 
 	font-family: "Poppins", sans-serif;
-    font-size: 21px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.57;
-    letter-spacing: normal;
-    color: #252525;
+	font-size: 21px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.57;
+	letter-spacing: normal;
+	color: #252525;
 
 	button {
 		color: black;
-	    height: 40px;
-    	width: 40px;
-        padding: 0;
-        margin: auto 24px;
+		height: 40px;
+		width: 40px;
+		padding: 0;
+		margin: auto 24px;
 
-        .mat-icon {
+		.mat-icon {
 
-            position: relative;
-            top: 0px;
-            font-size: 40px;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-        }
+			position: relative;
+			top: 0px;
+			font-size: 40px;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+		}
 	}
 }
 
@@ -139,7 +147,7 @@ div {
 }
 
 .mat-dialog-actions {
-    overflow: auto;
+	overflow: auto;
 	width: auto;
 	position: relative;
 	bottom: 0;
@@ -148,43 +156,43 @@ div {
 }
 
 .mat-h1, .mat-headline, .mat-typography h1 {
-    margin: auto;
-    color: white;
-    font-weight: bold;
-    @extend .noselect;
-    @include desktop {
-        font: 500 64px "BebasNeue", sans-serif;
-    }
-    @include phone {
-        font: 500 56px "BebasNeue", sans-serif;
-    }
+	margin: auto;
+	color: white;
+	font-weight: bold;
+	@extend .noselect;
+	@include desktop {
+		font: 500 64px "BebasNeue", sans-serif;
+	}
+	@include phone {
+		font: 500 48px "BebasNeue", sans-serif;
+	}
 }
 
 .mat-h2, .mat-title, .mat-typography h2 {
-    margin: auto;
-    color: white; 
-    font-weight: bold;
-    @extend .noselect;
-    @include desktop {
-        font: 500 48px "BebasNeue", sans-serif;
-    }
-    @include phone {
-        font: 500 32px "BebasNeue", sans-serif;
-    }
+	margin: auto;
+	color: white; 
+	font-weight: bold;
+	@extend .noselect;
+	@include desktop {
+		font: 500 48px "BebasNeue", sans-serif;
+	}
+	@include phone {
+		font: 500 32px "BebasNeue", sans-serif;
+	}
 }
 
 .mat-h3, .mat-subheading-2, .mat-typography h3 {
-    margin: auto;
-    color: white; 
-    font-weight: bold;
-    @include desktop {
-        margin-left: 48px;
-        font: 500 32px "BebasNeue", sans-serif;
-    }
-    @include phone {
-        margin-left: 8px;
-        font: 500 24px "BebasNeue", sans-serif;
-    }
+	margin: auto;
+	color: white; 
+	font-weight: bold;
+	@include desktop {
+		margin-left: 48px;
+		font: 500 32px "BebasNeue", sans-serif;
+	}
+	@include phone {
+		margin-left: 8px;
+		font: 500 24px "BebasNeue", sans-serif;
+	}
 	@include phone {
 		font-size: 21px;
 	}
@@ -195,7 +203,7 @@ div {
 	@include phone {
 		font-size: 20px;
 	}
-    color: white;
+	color: white;
 	margin: 24px 16px;
 }
 
@@ -204,12 +212,11 @@ div {
 	@include phone {
 		font-size: 18px;
 	}
-    color: white;
-	margin: 24px 16px;
+	color: white;
 }
 
 .mat-h6, .mat-typography h6 {
 	@extend .H6Black700Medium;
-    color: white;
+	color: white;
 	margin: 24px 16px;
 }

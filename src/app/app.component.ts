@@ -20,7 +20,7 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 	encapsulation: ViewEncapsulation.None,
-	animations: [fadeAnimation]
+	// animations: [fadeAnimation]
 })
 
 export class AppComponent implements OnInit, OnDestroy {
@@ -29,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	public isMobile: boolean = false;
 	public state = 'hide';
-	start: boolean = false;
 
 	private scrollingDown: boolean = true;
 	public barSize: string = "grow";
@@ -41,9 +40,17 @@ export class AppComponent implements OnInit, OnDestroy {
 	public pageList: string[] = ["portfolio", "contact", "resume", "about"];
 	public currentPage: string;
 
-	public showNav: boolean = false;
+	public showNav: boolean = true;
   	public pageView: boolean = false;
   	public lastScroll: number = 0;
+  	public expandedMobile: boolean = false;
+
+	public menuItems: Array<any> = [
+		{text: 'Resume', icon: 'list_alt', routerLink: '/resume'},
+		{text: 'Contact', icon: 'call', routerLink: '/contact'},
+		{text: 'About Me', icon: 'face', routerLink: '/about'},
+		{text: 'Portfolio', icon: 'folder_open', routerLink: '/portfolio'},
+	]
 
 	constructor(
 		public snackBar: MatSnackBar, 
@@ -61,13 +68,13 @@ export class AppComponent implements OnInit, OnDestroy {
 	    	.subscribe((event) => {
 	    		this.url = event["url"];
 	    		let short = this.url.replace(/\\|\//g,'');
+	    		this.showNav = (short === 'home' || short.length < 1);
 	    		this.currentPage = short;
 	    		let others = this.pageList.filter(e => e !== short);
 	    });
 	}
 
 	ngOnInit(): void {
-		setTimeout(() => this.start = true, 1000)
 	}
 
 	ngOnDestroy(): void {

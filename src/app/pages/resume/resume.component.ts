@@ -16,9 +16,24 @@ import {trigger, animate, style, group, query, transition, keyframes, state} fro
 export class ResumeComponent implements OnInit, OnDestroy {
 
 	pdfSrc: string = "./../../../assets/LukeJungmannResume.pdf#toolbar=0&navpanes=0&scrollbar=0";
+
+	config: any;
+	fullpage_api: any;
 	
 	constructor() {
 
+
+		this.config = {
+
+			// fullpage options
+			licenseKey: 'E96AAB72-E06A4F03-A6BFCE8E-275FF0A5',
+			anchors: ['page_0', 'page_1'],
+			sectionsColor: ['#111111', '#111111'],
+			menu: '#menu',
+			lockAnchors: true,
+			navigation: true,
+			navigationPosition: 'right',
+		};
 
 	}	// End-of constructor
 
@@ -29,4 +44,8 @@ export class ResumeComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 
 	}	// End-of ngOnDestroy
+
+	getRef(fullPageRef) {
+		this.fullpage_api = fullPageRef;
+	}
 }

@@ -1,9 +1,16 @@
 
 
-<div class="top-bar title-font" id="toolbar" routerLink="/home">
-	<span style="margin: auto auto auto 12px;" class="visible" [ngClass]="{'hidden' : (currentPage && currentPage == 'home')}">
-		<div class="wipe wipe-down"></div>
-		<span class="mat-h1" style="cursor: pointer;">Home</span>
+<div class="top-bar" id="toolbar">
+	<ng-container *ngIf="!isMobile">
+		<span class="home-container" style="display: flex; width: max-content;" *ngIf="!showNav" routerLink="/home">
+			<div class="wipe wipe-down" style="height: 72px; margin: auto 12px"></div>
+			<span class="mat-h1 home-button" style="cursor: pointer; margin: auto auto auto 0;">Home</span>
+		</span>
+	</ng-container>
+	<span *ngIf="!showNav" class="site-header" routerLink="/home">
+		<span class="neon-font">Luke</span>
+		<span class="flux-font">Jungmann</span>
+		<span class="neon-pink-font">.me</span>
 	</span>
 </div>
 
@@ -11,6 +18,19 @@
 	<router-outlet #o="outlet"></router-outlet>
 </div> -->
 
-<div class="router" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+<div class="router-default">
 	<router-outlet #o="outlet"></router-outlet>
 </div>
+
+
+<span class="home-mobile-container" *ngIf="isMobile" [ngClass]="{'hidden' : showNav, 'expanded' : expandedMobile}" (swipe)="expandedMobile = !expandedMobile;">
+	<span class="expander" (click)="expandedMobile = !expandedMobile;" style="display: flex;">
+		<mat-icon>{{expandedMobile ? 'unfold_less' : 'unfold_more'}}</mat-icon>
+	</span>
+	<div class="menu-items" (click)="expandedMobile = false;">
+		<div class="title-font" [ngStyle]="{'margin-right' : i*24+'px'}" *ngFor="let item of menuItems; let i = index;" (click)="expandedMobile = false;" [routerLink]="item.routerLink">
+			<span class="mat-h1" [ngStyle]="isMobile && {'margin-left': 'auto'}" [ngClass]="{'currentPage' : url == item.routerLink}">{{item.text}}</span>
+			<mat-icon [ngClass]="{'currentPage' : url == item.routerLink}">{{item.icon}}</mat-icon>
+		</div>
+	</div>
+</span>

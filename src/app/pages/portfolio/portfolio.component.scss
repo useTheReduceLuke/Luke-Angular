@@ -1,0 +1,36 @@
+@import "../../../styles.scss";
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+.table.tbody {
+	display: inline-flex;
+}
+
+.full-width {
+	width: 100vw;
+}
+
+.description {
+	position: relative;
+	z-index: 101;
+	color: white;
+	@include desktop {
+		font-size: 24px;
+	}
+	@include phone {
+		font-size: 16px;
+	}
+}
+
+.sub-item {
+	margin-top: 24px;
+	@include desktop {
+		margin-left: 40px;
+	}
+	@include phone {
+		margin-left: 32px;
+	}
+}

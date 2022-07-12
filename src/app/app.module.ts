@@ -7,6 +7,15 @@ import * as $ from "jquery";
 import { TweenMax, TimelineMax } from 'gsap/all';
 import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
+
+export class MyHammerConfig extends HammerGestureConfig {
+	overrides = <any> {
+		swipe: { direction: Hammer.DIRECTION_ALL },
+	};
+}
 
 // import 'animation.gsap';
 // import 'debug.addIndicators';
@@ -46,7 +55,7 @@ import {
 	MatTooltipModule,
 } from '@angular/material';
 
-import * as Skills from './pages/skills';
+import * as Portfolio from './pages/portfolio';
 import * as Resume from './pages/resume';
 import * as About from './pages/about';
 import * as Contact from './pages/contact';
@@ -97,30 +106,38 @@ import { AppComponent } from './app.component';
 export class MaterialModule { }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    Skills.SkillsComponent,
-    Skills.SkillsDesignComponent,
-    Skills.SkillsProgrammingComponent,
-    Resume.ResumeComponent,
-    About.AboutComponent,
-    Contact.ContactComponent,
-    Home.HomeComponent,
-    Components.UnderConstructionComponent,
-    Blank.BlankComponent,
+	entryComponents: [],
+	declarations: [
+		AppComponent,
+		Portfolio.PortfolioComponent,
+		Portfolio.PortfolioDesignComponent,
+		Portfolio.PortfolioProgrammingComponent,
+		Portfolio.PortfolioVoiceComponent,
+		Resume.ResumeComponent,
+		About.AboutComponent,
+		Contact.ContactComponent,
+		Home.HomeComponent,
+		Components.UnderConstructionComponent,
+		Blank.BlankComponent,
 
-  ],
-  imports: [
-  	AppRouting,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-	MaterialModule,
-	ParallaxModule,
-	AngularFullpageModule,
-  ],
-  providers: [], //Services go here
-  bootstrap: [AppComponent]
+	],
+	imports: [
+		AppRouting,
+		BrowserModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MaterialModule,
+		ParallaxModule,
+		AngularFullpageModule,
+		LazyLoadImagesModule,
+	],
+	providers: [
+		{
+			provide: HAMMER_GESTURE_CONFIG,
+			useClass: MyHammerConfig,
+		},
+    ], //Services go here
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,23 @@
+
+
+<div class="page-container" fullpage id="fullpage2" [options]="config" (ref)="getRef($event)">
+	<div *ngFor="let skill of skillList" class="section">
+		<div class="title-container">
+			<div class="title">
+				<span class="title-text">{{skill.text.title}}</span>
+			</div>
+			<span class="description">
+				{{skill.text.primary}}
+				<ng-container *ngFor="let text of skill.text.secondary">
+					<div class="sub-item">{{text}}</div>
+				</ng-container>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div id="fade-container" class="page-backdrop" lazy-load-images>
+	<ng-container *ngFor="let skill of skillList; let i = index;">
+		<img [ngClass]="{'opaque': i === currentIndex}" [attr.data-src]="skill.src">
+	</ng-container>
+</div>

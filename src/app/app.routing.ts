@@ -8,26 +8,22 @@ import {
 	HomeComponent,
 } from './pages/';
 
-import * as Skills from './pages/skills';
+import * as Portfolio from './pages/portfolio';
 
 const routes: Routes = [
 	{
 		path: 'portfolio',
-		component: Skills.SkillsComponent,
-		children: [
-			{
-				path: '**',
-				component: Skills.SkillsComponent,
-			},
-			{
-				path: 'design',
-				component: Skills.SkillsDesignComponent,
-			},
-			{
-				path: 'programming',
-				component: Skills.SkillsProgrammingComponent,
-			},
-		]
+		component: Portfolio.PortfolioProgrammingComponent,
+		// children: [
+		// 	{
+		// 		path: 'software',
+		// 		component: Portfolio.PortfolioProgrammingComponent,
+		// 	},
+		// 	{
+		// 		path: 'voice',
+		// 		component: Portfolio.PortfolioVoiceComponent,
+		// 	},
+		// ]
 	},
 	{
 		path: 'resume',
@@ -53,7 +49,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [RouterModule.forRoot(routes, {useHash: true})],
 	exports: [RouterModule]
 })
 export class AppRouting { }

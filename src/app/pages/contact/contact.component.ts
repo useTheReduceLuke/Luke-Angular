@@ -56,7 +56,6 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 	}
 
 	upgradeImage(object) {
-		console.log(object)
 		// var id = object.id;
 		// var target = "div_" + id.substring(4);
 

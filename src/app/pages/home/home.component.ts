@@ -27,10 +27,15 @@ export class HomeComponent implements OnInit {
 	public selected: number = 0;
 
 	public menuItems: Array<any> = [
-		{text: 'Skills', routerLink: '/portfolio'},
-		{text: 'Resume', routerLink: '/resume'},
-		{text: 'Contact', routerLink: '/contact'},
-		{text: 'About Me', routerLink: '/about'},
+		{text: 'Resume', icon: 'list_alt', routerLink: '/resume'},
+		{text: 'Contact', icon: 'call', routerLink: '/contact'},
+		{text: 'About Me', icon: 'face', routerLink: '/about'},
+		{text: 'Portfolio', icon: 'folder_open', routerLink: '/portfolio'},
+		// {text: 'Portfolio', icon: 'folder_open', hovered: 0, children: [
+		// 	{text: 'Software', icon: 'laptop', routerLink: '/portfolio/software'},
+		// 	{text: 'Voice Acting', icon: 'keyboard_voice', routerLink: '/portfolio/voice'},
+		// 	// {text: 'Software3', routerLink: '/portfolio'},
+		// ]},
 	]
 
 	constructor(public el: ElementRef){
@@ -47,8 +52,11 @@ export class HomeComponent implements OnInit {
  		setTimeout(() => this.start = true, 1000)
     }
 
+    onChildHover(item, index): void {
+    	item.hovered = index;
+    }
+
 	onHover(num: number) {
-		console.log(num)
 		this.selected = num;
 	}
 }

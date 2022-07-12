@@ -1,0 +1,25 @@
+
+<div class="container">
+	<div class="audio-player">
+		<div class="audio-wrapper" id="player-container" href="javascript:;">
+			<audio id="player" (timeupdate)="initProgressBar()">
+				<source src="assets/audio/test.mp3" type="audio/mp3">
+			</audio>
+		</div>
+		<div class="player-controls scrubber">
+			<div style="display: flex;">
+				<div id="play-btn">
+					<mat-icon *ngIf="!isPlaying">play_circle_outline</mat-icon>
+					<mat-icon *ngIf="isPlaying">pause_circle_outline</mat-icon>
+				</div>
+				<p class="mat-h5">First example of audio</p>
+			</div>
+			<span id="seek-obj-container" style="display: flex;">
+				<progress id="seekObj" value="0" max="1"></progress>
+			</span>
+			<small style="float: left; position: relative; left: 15px;" id="start-time"></small>
+			<small style="float: right; position: relative; right: 20px;" id="end-time"></small>
+		</div>
+		<!-- <div class="album-image" style="background-image: url(https://artistxite.ie/imgcache/album/005/161/005161476_500.jpg)"></div> -->
+	</div>
+</div>

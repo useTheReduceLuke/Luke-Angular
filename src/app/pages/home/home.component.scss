@@ -1,4 +1,5 @@
 @import "../../app.component.scss";
+@import '../../styles/neon.scss';
 
 @mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
 		text-shadow: $x $y $blur $color;
@@ -6,47 +7,22 @@
 
 .component {
 	display: grid;
+	z-index: 100;
 }
 
-.menu-items {
-	cursor: pointer;
-	width: 100%;
-	@include phone {
-		margin: auto 20px 0 20px;
-	}
-	@include desktop {
-		margin: auto auto 100px 80px;
-	}
+.image-container {
+	position: fixed; 
+	bottom:0; 
+	left: 0; 
+	width: 100vw; 
+	height: 100%;
+	background: black;
+    opacity: 0.4;
 
-	.title-font {
-		@include phone {
-			margin: 20px auto; 
-		}
-		@include desktop {
-			margin: 40px auto; 
-		}
-		display: flex;
-		@extend .mat-h1;
-
-		&:focus {
-			outline: none;
-		}
-
-		&:hover {
-			.wipe:after {
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-		.mat-h1 {
-			margin: 0;
-		}
-
-		.wipe {
-			transform: skew(15deg);
-			margin: 0 32px
-		}
+	img {
+		width: 100%; 
+		height: 100%; 
+		object-fit: cover;
 	}
 }
 
@@ -54,3 +30,83 @@
 		outline: none;
 }
 
+
+.parent-container {
+		
+	@include desktop {
+		display: flex;
+	}
+	@include phone {
+		display: block;
+	}
+
+	.child-container {
+		width: 0;
+		overflow: hidden;
+		transition: .6s ease;
+		display: flex;
+
+		.child-text {
+			margin: auto 0; 
+			display: flex;
+			width: max-content; 
+			white-space: nowrap;
+			padding: 0 16px; 
+			font-size: 44px;
+		}
+
+		.mat-icon {
+			@include phone {
+				width: 24px;
+				height: 24px;
+				font-size: 24px;
+			}
+			@include desktop {
+				width: 32px;
+				height: 32px;
+				font-size: 32px;
+			}
+			margin: auto 16px auto 0;
+		}
+	}
+
+	.child-overlay {
+		position: fixed;
+		bottom: 0; 
+		right: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		transition: 0.6s ease;
+		.child-text {
+			margin: auto; 
+			padding: 8px; 
+		}
+
+	}
+
+	&:hover, &:focus {
+		.child-container {
+			// width: 240px; // 1
+			width: 500px; // 2
+			// width: 720px; // 3
+			transition: .4s ease;
+		}
+
+		.child-overlay {
+			width: 100%;
+			height: 100%;
+			.child-container {
+				width: 80%;
+				height: 172px;
+				bottom: 0;
+				right: 0;
+				display: grid;
+				background-color: #000000d9;
+				border-top-left-radius: 8px;
+				position: absolute;
+				display: grid;
+			}
+		}
+	}
+}

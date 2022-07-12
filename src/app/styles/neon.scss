@@ -1,0 +1,70 @@
+
+
+@font-face {
+	font-family: neon;
+	src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+
+.title-font {
+	@include desktop {
+		font-size: 7vw;
+		line-height: 7vw;
+	}
+	@include phone {
+		font-size: 16vw;
+		line-height: 16vw;
+	}
+}
+
+.secondary-font {
+	@include desktop {
+		font-size: 60px;
+	}
+	@include phone {
+		font-size: 10vw;
+	}
+}
+
+.neon-font {
+	font-family: neon;
+	color: #FED128;
+	@extend .secondary-font;
+	text-shadow: 0 0 20px #FA1C16;
+}
+
+.flux-font {
+	font-family: neon;
+	color: #28D7FE;
+	@extend .secondary-font;
+	text-shadow: 0 0 20px #1041FF;
+}
+
+.neon-pink-font {
+	font-family: neon;
+	color: #f728fe;
+	@extend .secondary-font;
+	text-shadow: 0 0 20px #ff107c;
+}
+
+
+.neon {
+	font-family: neon;
+	color: #FED128;
+	@extend .title-font;
+	text-shadow: 0 0 20px #FA1C16;
+}
+
+.flux {
+	font-family: neon;
+	color: #28D7FE;
+	@extend .title-font;
+	text-shadow: 0 0 20px #1041FF;
+}
+
+.neon-pink {
+	font-family: neon;
+	color: #f728fe;
+	@extend .title-font;
+	text-shadow: 0 0 20px #ff107c;
+}
